@@ -34,6 +34,10 @@ Abra <http://localhost:8000> no navegador. Para hospedagem estática, publique o
 
 O ícone da aba do navegador é o arquivo local `site/favicon.svg`, incluído na pasta publicável.
 
+## Crédito e licença da fonte
+
+O título usa `Matcha World.ttf`, de Khurasan, obtida no [DaFont](https://www.dafont.com/pt/matcha-world.font) e armazenada localmente em `site/fonts/` para funcionar offline e em hospedagem estática. A nota do autor no pacote declara: “100% free for personal use & commercial use”. O pacote não traz uma licença formal separada; a nota não especifica obrigação de atribuição, mas mantemos o crédito por transparência. A versão gratuita não inclui caracteres multilíngues; o título atual usa apenas caracteres latinos básicos. O arquivo original `site/fonts/More Info.txt` acompanha a fonte.
+
 ## Dados e limitações
 
 O CSV preparado tem uma linha por venda, não por unidade. `quantidade` é o número de unidades nessa venda. `data` está no formato ISO (`AAAA-MM-DD`); IDs, cidade, categoria, produto e forma de pagamento são texto; quantidade é inteira; preço unitário e valor vendido são numéricos. Não há deduplicação automática: se houver ID ou linha duplicada, a preparação falha e informa o problema. Valores de venda não consideram custos, impostos, descontos ou devoluções e não permitem concluir lucro ou rentabilidade.

@@ -11,7 +11,7 @@ Projeto de análise de vendas de papelaria com preparação em Python/pandas, da
 
 ## Dados e privacidade
 
-Os CSVs de entrada e limpeza e o `site/data.json` gerado ficam fora do Git para não publicar registros de venda individuais. Para reproduzir a análise localmente, coloque `vendas_papelaria.csv` e `papelaria_limpa.csv` na raiz do projeto. Esses arquivos são ignorados pelo Git.
+Os CSVs de entrada e limpeza ficam fora do Git. O `projeto-dashboard/site/data.json` preparado é publicado para que o dashboard funcione no Render; ele contém os 180 registros de venda (IDs, datas, cidades, produtos, pagamentos e valores), conforme autorização explícita da proprietária. Para reproduzir a preparação, coloque `vendas_papelaria.csv` e `papelaria_limpa.csv` localmente na raiz; os CSVs continuam ignorados pelo Git.
 
 ## Preparar e testar (PowerShell/Windows)
 
@@ -32,7 +32,11 @@ Depois de preparar os dados:
 .\.venv\Scripts\python.exe -m http.server 8000 --directory projeto-dashboard\site
 ```
 
-Abra <http://localhost:8000>. A pasta publicável em hospedagem estática é `projeto-dashboard/site/`; gere `data.json` localmente antes de publicar os dados deliberadamente.
+Abra <http://localhost:8000>. A pasta publicável é `projeto-dashboard/site/`; o `data.json` versionado acompanha o deploy. Quando os dados locais mudarem, regenere o JSON, revise-o e faça commit conscientemente, pois ele contém registros individuais.
+
+## Deploy no Render
+
+O arquivo [`render.yaml`](render.yaml) configura um site estático cujo diretório publicado é `projeto-dashboard/site`. Importe este repositório no Render usando **New → Blueprint**; o `data.json` versionado será servido junto com a página.
 
 ## Skills disponíveis
 

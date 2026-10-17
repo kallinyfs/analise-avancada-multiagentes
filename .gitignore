@@ -17,7 +17,6 @@ __pycache__/
 
 # Dados de venda locais (não publicar registros individuais)
 *.csv
-projeto-dashboard/site/data.json
 
 # Arquivos gerados durante análises e testes
 /categorias.png

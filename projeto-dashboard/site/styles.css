@@ -22,13 +22,22 @@
   text-rendering: optimizeLegibility;
 }
 
+@font-face {
+  font-family: "Matcha World";
+  src: url("fonts/matcha-world.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 * { box-sizing: border-box; }
 body { margin: 0; background-color: var(--fundo); background-image: repeating-linear-gradient(0deg, transparent 0 31px, rgb(190 149 196 / 10%) 31px 32px); color: var(--texto); line-height: 1.5; }
 .largura { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
 .topo { position: relative; overflow: hidden; padding: 16px 0 18px; background: linear-gradient(112deg, var(--azul-900), var(--azul-800) 62%, var(--azul-600)); color: var(--branco); }
 .topo::after { position: absolute; right: max(4vw, calc((100vw - 1180px) / 2)); bottom: -108px; width: 280px; height: 190px; border: 1px solid rgb(224 177 203 / 24%); border-radius: 50%; box-shadow: 0 0 0 24px rgb(224 177 203 / 7%), 0 0 0 50px rgb(224 177 203 / 5%); content: ""; pointer-events: none; }
-.ilustracoes-papelaria { position: absolute; z-index: 0; top: 50%; right: calc(max(20px, (100vw - 1180px) / 2) + 225px + clamp(20px, 4vw, 52px)); width: min(24vw, 280px); opacity: .74; pointer-events: none; transform: translateY(-50%); }
-.ilustracoes-papelaria svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ilustracoes-papelaria { position: absolute; z-index: 0; top: 50%; right: calc(max(20px, (100vw - 1180px) / 2) + 225px + clamp(20px, 4vw, 52px)); width: min(24vw, 280px); overflow: hidden; border: 1px solid rgb(224 177 203 / 34%); border-radius: 20px; background: linear-gradient(145deg, rgb(224 177 203 / 10%), rgb(35 25 66 / 14%)); box-shadow: 0 10px 24px rgb(35 25 66 / 16%), inset 0 1px rgb(255 255 255 / 12%); opacity: .74; pointer-events: none; transform: translateY(-50%); }
+.ilustracoes-papelaria::before { position: absolute; z-index: 1; inset: 6px; border: 1px dashed rgb(224 177 203 / 34%); border-radius: 14px; content: ""; pointer-events: none; }
+.ilustracoes-papelaria svg { position: relative; z-index: 2; display: block; width: 100%; height: auto; overflow: visible; }
 .ilustracao-livro, .ilustracao-lapis, .ilustracao-regua { transform-box: fill-box; transform-origin: center; }
 .ilustracao-livro { animation: papelaria-flutua 6.8s ease-in-out infinite; }
 .ilustracao-lapis { animation: lapis-balanceio 7.4s ease-in-out .7s infinite; }
@@ -52,6 +61,7 @@ body { margin: 0; background-color: var(--fundo); background-image: repeating-li
 .topo .sobrelinha { color: var(--azul-150); }
 h1, h2, h3, p { margin-top: 0; }
 h1 { margin-bottom: 9px; font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.15; letter-spacing: -.025em; }
+.hero-texto h1 { margin-bottom: 4px; font-family: "Matcha World", "Segoe Script", "Brush Script MT", "Lucida Handwriting", cursive; font-size: clamp(1.8rem, 3.8vw, 2.55rem); font-weight: 400; font-style: normal; line-height: 1.12; letter-spacing: .005em; text-shadow: 0 1px 0 rgb(224 177 203 / 24%), 0 2px 8px rgb(35 25 66 / 22%); }
 .links-perfil { display: grid; gap: 6px; padding: 10px 12px; border: 1px solid rgb(224 177 203 / 32%); border-radius: 13px; background: rgb(35 25 66 / 38%); box-shadow: inset 0 1px rgb(255 255 255 / 5%); }
 .links-perfil p { margin: 0 0 1px; color: var(--azul-150); font-size: .76rem; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 .links-perfil a { display: flex; min-height: 36px; align-items: center; gap: 8px; padding: 5px 8px; border: 1px solid rgb(224 177 203 / 26%); border-radius: 8px; color: white; font-size: .84rem; font-weight: 700; text-decoration: none; transition: background-color .16s ease, border-color .16s ease; }
@@ -166,8 +176,10 @@ footer p { margin-bottom: 0; }
   .ilustracoes-papelaria { display: block; top: 8px; right: 12px; width: 88px; opacity: .68; transform: none; }
   .hero-conteudo { grid-template-columns: 1fr; gap: 10px; }
   .hero-texto { padding-right: 96px; }
-  .links-perfil { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 440px); }
+  .links-perfil { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 440px); gap: 4px; padding: 7px 8px; }
   .links-perfil p { grid-column: 1 / -1; }
+  .links-perfil a { min-height: 32px; gap: 6px; padding: 4px 6px; font-size: .78rem; }
+  .links-perfil svg { width: 16px; height: 16px; }
   main { padding-top: 21px; }
   .filtros { padding: 17px; }
   .cartoes { grid-template-columns: 1fr; gap: 10px; }
@@ -191,9 +203,6 @@ footer p { margin-bottom: 0; }
   .cabecalho-secao { align-items: start; }
   .cabecalho-secao h2 { max-width: 18ch; }
   .cartao-grafico { padding: 15px; }
-  .links-perfil { gap: 4px; padding: 7px 8px; }
-  .links-perfil a { min-height: 32px; gap: 6px; padding: 4px 6px; font-size: .78rem; }
-  .links-perfil svg { width: 16px; height: 16px; }
   .barra-linha { grid-template-columns: 24px minmax(70px, 1fr) minmax(86px, auto); gap: 6px; }
   .barra-numero { font-size: .75rem; }
   .barra-participacao { font-size: .65rem; }
