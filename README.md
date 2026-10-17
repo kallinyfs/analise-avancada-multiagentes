@@ -2,6 +2,9 @@
 
 Projeto de análise de vendas de papelaria com preparação em Python/pandas, dashboard estático e relatórios de execução. O fluxo de trabalho está em [`AGENTS.md`](AGENTS.md); os relatórios Markdown estão em [`projeto-dashboard/relatorios/`](projeto-dashboard/relatorios/).
 
+# Link de acesso
+Link: https://analise-avancada-multiagentes-wgsb.onrender.com/
+
 ## O que está incluído
 
 - `projeto-dashboard/`: preparação dos dados, dashboard estático e testes.
