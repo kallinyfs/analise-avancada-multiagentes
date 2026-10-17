@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Painel interativo de vendas de uma papelaria, com filtros por categoria, cidade, mês e produto.">
+    <title>Vendas da papelaria | Painel</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topo">
+      <div class="ilustracoes-papelaria" aria-hidden="true">
+        <svg viewBox="0 0 360 190" focusable="false" aria-hidden="true">
+          <g class="ilustracao-livro">
+            <path class="linea-desenhada pagina" d="M14 38 Q42 27 74 41 V133 Q43 115 14 126 Z" />
+            <path class="linea-desenhada pagina" d="M74 41 Q106 27 134 38 V126 Q105 115 74 133 Z" />
+            <path class="linea-desenhada dobra" d="M74 41 V133" />
+            <path class="linea-desenhada linha-pagina" d="M27 57 Q46 52 61 59 M27 71 Q46 66 61 73 M87 59 Q105 52 121 57 M87 73 Q105 66 121 71" />
+          </g>
+          <g class="ilustracao-lapis">
+            <path class="corpo-lapis" d="M183 112 L235 43 Q239 38 244 42 L252 48 Q256 52 252 57 L200 126 L181 132 Z" />
+            <path class="ponta-lapis" d="M181 132 L185 112 L200 126 Z" />
+            <path class="detalhe-lapis" d="M231 48 L248 61 M187 116 L197 124" />
+            <path class="borracha-lapis" d="M235 43 L241 35 Q245 30 250 34 L256 39 Q260 43 256 48 L252 52" />
+          </g>
+          <path class="clipe-tracado" d="M293 48 C293 34 313 34 313 49 V97 C313 112 292 112 292 97 V58 C292 50 304 50 304 59 V94" />
+          <g class="ilustracao-regua">
+            <path class="regua-corpo" d="M162 151 H323 V169 H162 Z" />
+            <path class="regua-marcas" d="M178 151 V161 M193 151 V157 M208 151 V161 M223 151 V157 M238 151 V161 M253 151 V157 M268 151 V161 M283 151 V157 M298 151 V161 M313 151 V157" />
+          </g>
+        </svg>
+      </div>
+      <div class="hero-conteudo largura">
+        <div class="hero-texto">
+          <p class="sobrelinha">PAINEL DE VENDAS</p>
+          <h1>Vendas da papelaria</h1>
+        </div>
+        <nav class="links-perfil" aria-label="Perfis de Kalliny Santos">
+          <p>Conecte-se comigo</p>
+          <a href="https://github.com/kallinyfs" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Kalliny Santos (abre em nova aba)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.9 2.08 3.75 1.58.1-.73.4-1.23.7-1.52-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.22 1.16-3-.12-.29-.5-1.43.11-2.98 0 0 .95-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.1-1.44 3.05-1.15 3.05-1.15.61 1.55.23 2.69.11 2.98.72.78 1.16 1.78 1.16 3 0 4.3-2.6 5.24-5.1 5.51.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
+            <span>GitHub</span><span class="seta-link" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/kalliny-santos-704b8a34a/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Kalliny Santos (abre em nova aba)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.34H4.99V9.27h2.94v9.07ZM6.46 8.03a1.7 1.7 0 1 1 .02-3.4 1.7 1.7 0 0 1-.02 3.4Zm11.88 10.31H15.4v-4.41c0-1.05-.02-2.4-1.46-2.4-1.46 0-1.68 1.14-1.68 2.32v4.49H9.32V9.27h2.82v1.24h.04c.39-.71 1.35-1.46 2.78-1.46 2.97 0 3.52 1.95 3.52 4.48v4.81h-.14Z"/></svg>
+            <span>LinkedIn</span><span class="seta-link" aria-hidden="true">↗</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="largura">
+      <section class="filtros" aria-labelledby="titulo-filtros">
+        <div class="cabecalho-secao">
+          <div>
+            <p class="sobrelinha">EXPLORAÇÃO</p>
+            <h2 id="titulo-filtros">Filtros</h2>
+          </div>
+          <button id="limpar-filtros" class="botao-secundario" type="button">Limpar filtros</button>
+        </div>
+        <div class="campos-filtro">
+          <div class="campo">
+            <label for="filtro-categoria">Categoria</label>
+            <select id="filtro-categoria"><option value="">Todas as categorias</option></select>
+          </div>
+          <div class="campo">
+            <label for="filtro-cidade">Cidade</label>
+            <select id="filtro-cidade"><option value="">Todas as cidades</option></select>
+          </div>
+          <div class="campo">
+            <label for="filtro-mes">Mês</label>
+            <select id="filtro-mes"><option value="">Todos os meses</option></select>
+          </div>
+          <div class="campo">
+            <label for="filtro-produto">Produto</label>
+            <select id="filtro-produto"><option value="">Todos os produtos</option></select>
+          </div>
+        </div>
+      </section>
+
+      <p id="mensagem-status" class="mensagem-status" role="status" aria-live="polite">Carregando os dados…</p>
+
+      <section aria-labelledby="titulo-indicadores">
+        <div class="cabecalho-secao cabecalho-indicadores">
+          <div>
+            <p class="sobrelinha">RESUMO</p>
+            <h2 id="titulo-indicadores">Indicadores de vendas</h2>
+          </div>
+        </div>
+        <div class="cartoes">
+          <article class="cartao-indicador">
+            <h3>Valor total vendido</h3>
+            <p id="kpi-total" class="valor-indicador">—</p>
+            <p class="nota-indicador">Soma de quantidade × preço unitário</p>
+            <p id="comparacao-total" class="comparacao-indicador"></p>
+          </article>
+          <article class="cartao-indicador">
+            <h3>Quantidade de vendas</h3>
+            <p id="kpi-vendas" class="valor-indicador">—</p>
+            <p class="nota-indicador">Uma venda por linha (ID único)</p>
+            <p id="comparacao-vendas" class="comparacao-indicador"></p>
+          </article>
+          <article class="cartao-indicador">
+            <h3>Ticket médio</h3>
+            <p id="kpi-ticket" class="valor-indicador">—</p>
+            <p class="nota-indicador">Valor total vendido ÷ número de vendas</p>
+            <p id="comparacao-ticket" class="comparacao-indicador"></p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="titulo-graficos" class="secao-graficos">
+        <div class="cabecalho-secao">
+          <div>
+            <p class="sobrelinha">TENDÊNCIA E COMPOSIÇÃO</p>
+            <h2 id="titulo-graficos">Como as vendas se distribuem?</h2>
+          </div>
+        </div>
+        <div class="grade-graficos">
+          <article class="cartao-grafico cartao-tendencia">
+            <div class="cabecalho-grafico">
+              <div>
+                <p class="sobrelinha">EVOLUÇÃO MENSAL</p>
+                <h3>Valor vendido por mês</h3>
+              </div>
+              <span class="selo-grafico" aria-hidden="true">R$</span>
+            </div>
+            <p id="resumo-mensal" class="resumo-grafico somente-leitor"></p>
+            <div id="grafico-mensal" class="grafico-mensal" aria-label="Tendência mensal de valor vendido" aria-describedby="resumo-mensal"></div>
+          </article>
+          <article class="cartao-grafico">
+            <div class="cabecalho-grafico">
+              <div>
+                <p class="sobrelinha">RANKING · CATEGORIAS</p>
+                <h3>Valor vendido por categoria</h3>
+              </div>
+              <span class="selo-grafico" aria-hidden="true">R$</span>
+            </div>
+            <p id="resumo-categoria" class="resumo-grafico somente-leitor"></p>
+            <div id="grafico-categoria" class="grafico-barras" role="list" aria-label="Gráfico de valor vendido por categoria" aria-describedby="resumo-categoria"></div>
+            <div id="escala-categoria" class="escala-grafico" aria-hidden="true"></div>
+          </article>
+          <article class="cartao-grafico">
+            <div class="cabecalho-grafico">
+              <div>
+                <p class="sobrelinha">RANKING · CIDADES</p>
+                <h3>Valor vendido por cidade</h3>
+              </div>
+              <span class="selo-grafico" aria-hidden="true">R$</span>
+            </div>
+            <p id="resumo-cidade" class="resumo-grafico somente-leitor"></p>
+            <div id="grafico-cidade" class="grafico-barras" role="list" aria-label="Gráfico de valor vendido por cidade" aria-describedby="resumo-cidade"></div>
+            <div id="escala-cidade" class="escala-grafico" aria-hidden="true"></div>
+          </article>
+          <article class="cartao-grafico">
+            <div class="cabecalho-grafico">
+              <div>
+                <p class="sobrelinha">RANKING · PRODUTOS</p>
+                <h3>Participação acumulada</h3>
+              </div>
+              <span class="selo-grafico" aria-hidden="true">%</span>
+            </div>
+            <p id="resumo-produto" class="resumo-grafico somente-leitor"></p>
+            <div id="grafico-produto" class="grafico-barras grafico-pareto" role="list" aria-label="Ranking de produtos por valor vendido e participação acumulada" aria-describedby="resumo-produto"></div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="titulo-tabela" class="secao-tabela">
+        <div class="cabecalho-secao cabecalho-tabela">
+          <div>
+            <p class="sobrelinha">DETALHAMENTO</p>
+            <h2 id="titulo-tabela">Registros de vendas</h2>
+          </div>
+          <p id="contagem-tabela" class="contagem-tabela"></p>
+        </div>
+        <div class="aviso-rolagem" aria-hidden="true">Em telas pequenas, deslize a tabela para o lado →</div>
+        <div class="envoltorio-tabela" tabindex="0" aria-label="Tabela de vendas; role horizontalmente para ver todas as colunas">
+          <table>
+            <caption class="somente-leitor">Vendas filtradas, incluindo identificador, data, local, produto, quantidade, preço, pagamento e valor vendido.</caption>
+            <thead>
+              <tr>
+                <th scope="col">ID da venda</th>
+                <th scope="col">Data</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Produto</th>
+                <th scope="col" class="numero">Quantidade</th>
+                <th scope="col" class="numero">Preço unitário</th>
+                <th scope="col">Forma de pagamento</th>
+                <th scope="col" class="numero">Valor vendido</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela"></tbody>
+          </table>
+        </div>
+      </section>
+      <footer>
+        <p>Fonte: <code>papelaria_limpa.csv</code>. Painel estático, atualizado ao preparar os dados.</p>
+      </footer>
+    </main>
+  </body>
+</html>

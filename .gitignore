@@ -1,0 +1,31 @@
+# Ambientes locais e caches Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Configurações locais e segredos
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.pem
+*.key
+
+# Dados de venda locais (não publicar registros individuais)
+*.csv
+projeto-dashboard/site/data.json
+
+# Arquivos gerados durante análises e testes
+/categorias.png
+/cidades.png
+projeto-dashboard/tests/browser-evidence.json
+*.log
+*.tmp
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
